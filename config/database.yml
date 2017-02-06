@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: wikipages_development
+
+test:
+  <<: *default
+  database: wikipages_test
+
+production:
+  <<: *default
+  database: wikipages_production
+  username: wikipages
+  password: <%= ENV['EXAMPLE_DATABASE_PASSWORD'] %>
