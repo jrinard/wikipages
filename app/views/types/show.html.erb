@@ -1,5 +1,29 @@
 <h1><%= @type.category %></h1>
 
+<% if @type.listings.any? %>
+  <h4>Here are the listings for this list:</h4>
+
+  <ul>
+    <% @type.listings.each do |listing| %>
+      <li>
+        <%= listing.name %><br>
+        <%= listing.address %><br>
+        <%= listing.phone %><br>
+        <%= listing.web %><br>
+        <%= listing.hours %><br>
+        <%= link_to "Edit", edit_type_listing_path(@type, listing) %>
+        <%= link_to "Delete", type_listing_path(@type, listing),
+              :data => {:confirm => "Are you sure?",
+                        :method => "delete"} %>
+
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p> There are no listings yet!</p>
+<% end %>
+
+<%= link_to "Add a listing", new_type_listing_path(@type) %>
 <hr>
 
 <%= link_to "Types", types_path %> |
