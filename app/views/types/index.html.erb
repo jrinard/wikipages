@@ -1,0 +1,11 @@
+<h1>Types</h1>
+
+<ul>
+  <% @types.each do |type| %>
+    <li><%= link_to type.category, type_path(type) %></li>
+  <% end %>
+</ul>
+
+<hr>
+<%= link_to "Types", types_path %> |
+<%= link_to "New Type", new_type_path %>
