@@ -11,6 +11,15 @@
   <%= f.text_field :web %><br>
   <%= f.label :hours %>
   <%= f.text_field :hours %><br>
+
+  <select name="shmategory" id="category">
+
+  <%= @types.each do |type| %>
+  <option id="category" value="<%= type.id %>"><%= type.category %></option>
+  <% end %>
+</select>
+
+  <button type="submit">update category</button>
   <p><%= f.submit %></p>
 
 <% end %>

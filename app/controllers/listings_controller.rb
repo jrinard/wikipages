@@ -15,6 +15,7 @@ class ListingsController < ApplicationController
     def edit
       @type = Type.find(params[:type_id])
       @listing = Listing.find(params[:id])
+      @types = Type.all
       render :edit
     end
     def update
@@ -34,6 +35,6 @@ class ListingsController < ApplicationController
     end
   private
     def listing_params
-      params.require(:listing).permit(:name, :address, :phone, :web, :hours, :type_id)
+      params.require(:listing).permit(:name, :address, :phone, :web, :hours, :type_id, :category)
     end
   end
